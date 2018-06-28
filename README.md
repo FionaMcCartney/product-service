@@ -7,5 +7,7 @@ To create the Entity Framework database in your LocalDB, in the Package Manager 
 2.  Execute the following to generate the code that creates the database: Add-Migration Initial
 3.	Execute the following to run the code: Update-Database
 
+To ensure the products.json file is found, update the file path in \Migrations\Configuraion.cs
+
 # Build and Test
 Run the application through the debugger (F5)
