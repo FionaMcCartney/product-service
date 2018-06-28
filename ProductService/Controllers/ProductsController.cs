@@ -99,8 +99,7 @@ namespace ProductService.Controllers
             db.Products.Add(product);
             await db.SaveChangesAsync();
 
-            // New code:
-            // Load author name
+            // Load Category name
             db.Entry(product).Reference(x => x.Category).Load();
 
             var dto = new ProductDTO()

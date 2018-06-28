@@ -29,7 +29,6 @@
 
 
     self.detail = ko.observable();
-
     self.getProductDetail = function (item) {
         ajaxHelper(productsUri + item.Id, 'GET').done(function (data) {
             self.detail(data);
@@ -37,13 +36,15 @@
     }
 
 
-    self.deleteProduct = ko.observable();
-
+    self.delete = ko.observable();
     self.deleteProduct = function (item) {
-        ajaxHelper(productsUri + item.Id, 'DELETE').done(function (data) {
-            self.deleteProduct(data);
-        });
-        window.location.reload();
+        if (confirm("Are you sure you want to delete this product?")) {
+
+            ajaxHelper(productsUri + item.Id, 'DELETE').done(function (data) {
+                self.delete(data);
+                location.reload();
+            });
+        }
     }
 
 
